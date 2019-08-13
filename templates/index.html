@@ -16,3 +16,11 @@
 {% block content %}
     {{ mymap.html }}
 {% endblock %}
+{% block details %}
+<a style="alignment: center">
+    {% for k in details %}
+    <h1> {{ total }} Violations Found! </h1>
+        {{ details[k] }} <br>
+    {% endfor %}
+</a>
+{% endblock %}

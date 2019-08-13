@@ -3,7 +3,7 @@ import googlemaps
 
 class MapHandler():
     def __init__(self, location="", data={}):
-        if len(data.keys()) == 0:
+        if location is "":
             lat = 37.0902
             long = -95.7129
             zoom = 4
@@ -12,14 +12,15 @@ class MapHandler():
             search = self.get_geocode(location)[0]
             lat = search['geometry']['location']['lat']
             long = search['geometry']['location']['lng']
-            zoom = 13
+            zoom = 12
             markers = []
             for mark in data:
+                dfr_url = data[mark]['dfr_url']
                 markers.append({
                     'icon': "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
                     'lat': data[mark]['CenterLatitude'],
                     'lng': data[mark]['CenterLongitude'],
-                    'infobox': "AHHHHHH "
+                    'infobox': f"<a href='{dfr_url}' target='_blank'> Facility Details </a>"
                 })
         self.map_config={
             'lat': lat,
@@ -43,18 +44,6 @@ class MapHandler():
             markers=self.map_config['markers'],
             style="height:60%; width:75%; margin:1;"
         )
-
-
-    def update_location(self,location, data_model):
-        """ Get geocode and update map
-        :return: evaluated list of python dict recipes
-        """
-        result_dict = data_model.get_geocode(location)
-        self.map_config['lat'] = result_dict['location']['lat']
-        self.map_config['long'] = result_dict['location']['lng']
-        self.map_config['zoom'] = 6
-        self.map = self.get_map()
-        return self.map
 
     def get_api_key(self, txt_file):
         import os

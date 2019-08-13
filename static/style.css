@@ -4,13 +4,6 @@ a, h1, h2  { color: steelblue; position: center; }
 form       { margin:.1em auto; padding:.1em; width: 400px; border: 1px }
 input[type=text] { margin: .5em 0; padding: .5em; font-size: 12px; color: #777; width: 200px;}
 
-.page      {
-    height: 800px;
-    width:100%;
-    margin:1em auto;
-    padding:1em;
-}
-
 .topnav    {
     height: 80px;
     width: 100%;
@@ -25,5 +18,30 @@ input[type=text] { margin: .5em 0; padding: .5em; font-size: 12px; color: #777; 
     text-align: center;
     font-size: 20px;
     color: whitesmoke;
+    display: block;
+}
+
+.map      {
+    float: left;
+    height: 700px;
+    width:70%;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.details_pane {
+    float: right;
+    height: 700px;
+    width: 20%;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.details_pane a  {
+    padding: 8px 8px 8px 8px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    color: steelblue;
     display: block;
 }
