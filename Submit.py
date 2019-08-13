@@ -12,4 +12,5 @@ class Submit(MethodView):
         query = QueryHandler(location)
         data = query.get_map_data()
         mymap = MapHandler(location, data)
-        return render_template('index.html', mymap=mymap.map, details=data, total=len(data.keys()))
+        total_violations = len(data.keys())
+        return render_template('index.html', mymap=mymap.map, details=data, total=total_violations, submit_flag=1)

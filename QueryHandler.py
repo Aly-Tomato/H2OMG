@@ -18,8 +18,11 @@ class QueryHandler():
         # Use get_systems to validate passed query params to obtain QID
         self.search = self.search.replace(" ", "%20")
         self.search = self.search.replace(",", "%2C")
-        get_systems_url = f'https://ofmpub.epa.gov/echo/sdw_rest_services.get_systems?output=JSON&p_act=Y&p_qs={self.search}'
-        response = requests.get(get_systems_url).json()
+        get_systems_url = f'https://ofmpub.epa.gov/echo/sdw_rest_services.get_systems?output=JSON&p_fea=W&p_feay=3&p_qs={self.search}'
+        try:
+            response = requests.get(get_systems_url).json()
+        except response.raise_for_status() as e:
+            return []
 
         # Use get_qid with returned QID to paginate through water systems
         qid = response['Results']['QueryID']
@@ -38,8 +41,11 @@ class QueryHandler():
         dfr_url = f'https://ofmpub.epa.gov/echo/dfr_rest_services.get_dfr?p_id={facility["PWSId"]}'
         response = requests.get(dfr_url).json()
         for field in fields:
-            if(len(response['Results']['Demographics'].keys()) > 0):
+            if field in response['Results']['Demographics'].keys():
+            #if(len(response['Results']['Demographics'].keys()) > 0):
                 data[field] = response['Results']['Demographics'][field]
+            else:
+                data[field] = 0
         data['dfr_url'] = facility['DfrUrl']
         return data
 

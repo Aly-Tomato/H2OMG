@@ -16,11 +16,19 @@ class MapHandler():
             markers = []
             for mark in data:
                 dfr_url = data[mark]['dfr_url']
+                if data[mark]['CenterLatitude'] == 0 and data[mark]['CenterLongitude'] ==0:
+                    geo = self.get_geocode(mark)[0]
+                    data_lat = geo['geometry']['location']['lat']
+                    data_lng = geo['geometry']['location']['lng']
+                else:
+                    data_lat = data[mark]['CenterLatitude']
+                    data_lng = data[mark]['CenterLongitude']
+                infobox_details = f'Facility Name: {mark}' + "\n"
                 markers.append({
-                    'icon': "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
-                    'lat': data[mark]['CenterLatitude'],
-                    'lng': data[mark]['CenterLongitude'],
-                    'infobox': f"<a href='{dfr_url}' target='_blank'> Facility Details </a>"
+                    'icon': "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                    'lat': data_lat,
+                    'lng': data_lng,
+                    'infobox': infobox_details + f"<a href='{dfr_url}' target='_blank'> Facility Details </a>"
                 })
         self.map_config={
             'lat': lat,

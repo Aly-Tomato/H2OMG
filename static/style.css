@@ -33,7 +33,7 @@ input[type=text] { margin: .5em 0; padding: .5em; font-size: 12px; color: #777; 
     float: right;
     height: 700px;
     width: 20%;
-    padding: 1em;
+    padding: 2em;
     overflow: hidden;
 }
 
@@ -42,6 +42,6 @@ input[type=text] { margin: .5em 0; padding: .5em; font-size: 12px; color: #777; 
     text-decoration: none;
     text-align: center;
     font-size: 20px;
-    color: steelblue;
+    color: black;
     display: block;
 }

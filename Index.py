@@ -5,4 +5,4 @@ from MapHandler import MapHandler
 class Index(MethodView):
     def get(self):
         mymap = MapHandler()
-        return render_template('index.html', mymap=mymap.map, details={})
+        return render_template('index.html', mymap=mymap.map, details={}, total=0, submit_flag=0)

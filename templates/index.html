@@ -5,9 +5,9 @@
 {% endblock %}
 
 {%  block nav %}
-    <a style="font-size: 16px"> Search by county to refine your search! <br>
+    <a style="font-size: 16px"> Search by City and State to Refine Your Search! <br>
         <form action="{{ url_for('submit') }}" method=post>
-            <input type=text name=location value="Enter county and state">
+            <input type=text name=location value="Enter City and State">
             <input type=submit value=Search>
         </form>
     </a>
@@ -18,9 +18,14 @@
 {% endblock %}
 {% block details %}
 <a style="alignment: center">
-    {% for k in details %}
-    <h1> {{ total }} Violations Found! </h1>
-        {{ details[k] }} <br>
-    {% endfor %}
+    {% if submit_flag == 1 %}
+        {% if total > 1 %}
+            <h1> {{ total }} Health Violations Found! </h1>
+        {% elif total == 1 %}
+            <h1> {{ total }} Health Violation Found! </h1>
+        {% else %}
+            <h1> No Current Health Violations!! </h1>
+        {% endif %}
+    {% endif %}
 </a>
 {% endblock %}
