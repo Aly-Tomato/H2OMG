@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    {{mymap.js}}
+{% endblock %}
+
+{%  block nav %}
+    <a style="font-size: 16px"> Search by county to refine your search! <br>
+        <form action="{{ url_for('submit') }}" method=post>
+            <input type=text name=location value="Enter county and state">
+            <input type=submit value=Search>
+        </form>
+    </a>
+{% endblock %}
+
+{% block content %}
+    {{ mymap.html }}
+{% endblock %}
