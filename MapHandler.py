@@ -3,11 +3,13 @@ import googlemaps
 
 class MapHandler():
     def __init__(self, location="", data={}):
+        # Default map of USA
         if location is "":
             lat = 37.0902
             long = -95.7129
             zoom = 4
             markers = []
+        # City Map containing markers of facilities
         else:
             search = self.get_geocode(location)[0]
             lat = search['geometry']['location']['lat']
@@ -40,9 +42,8 @@ class MapHandler():
 
     def get_map(self):
         """
-        Helper function to determine which type of recipes should be selected
-        :param type: Type of recipe ex. 'Vegetarian', 'Gluten Free', 'Pescatarian', None
-        :return: Google Map object
+        Helper function used to create Google Map Obj
+        :return Google Map object:
         """
         return Map(
             identifier="view-side",
@@ -54,6 +55,12 @@ class MapHandler():
         )
 
     def get_api_key(self, txt_file):
+        """
+        Helper function to read api key from file.
+        Sorry I didn't have a more creative way to do this.
+        :param txt_file - containing key:
+        :return void:
+        """
         import os
         if os.path.exists(os.getcwd()+'/'+txt_file):
             with open(txt_file, 'r') as file:
@@ -63,9 +70,10 @@ class MapHandler():
             print("Error: need api key")
 
     def get_geocode(self, location):
-        """ use googlemaps geocoding api to get lat & long coordinates
-        :param county:
-        :return:
+        """
+        Use googlemaps geocoding api to get lat & long coordinates
+        :param location - to get geocode for:
+        :return geo_results - google geocode response:
         """
         key = self.get_api_key('api_key.txt')
         gmap_geo = googlemaps.Client(key=key)

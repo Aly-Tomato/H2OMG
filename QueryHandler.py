@@ -1,5 +1,6 @@
 """
-Sends and receives queries made to the EPA ECHO Rest API
+Sends and receives queries made to
+EPA ECHO Rest API & EPA Detailed Facility Report API
 
 File: QueryHandler.py
 """
@@ -23,7 +24,6 @@ class QueryHandler():
             response = requests.get(get_systems_url).json()
         except response.raise_for_status() as e:
             return []
-
         # Use get_qid with returned QID to paginate through water systems
         qid = response['Results']['QueryID']
         get_qid_url = f'https://ofmpub.epa.gov/echo/sdw_rest_services.get_qid?qid={qid}&pageno=1'
@@ -34,7 +34,7 @@ class QueryHandler():
     def query_and_get_dfr(self, facility):
         """
         Send requests to the EPA's Detailed Facility Report Rest Services
-        :return (lat, long) of facility:
+        :return data - python dict containing facility details:
         """
         data = {}
         fields = ['CenterLatitude', 'CenterLongitude']
@@ -42,7 +42,6 @@ class QueryHandler():
         response = requests.get(dfr_url).json()
         for field in fields:
             if field in response['Results']['Demographics'].keys():
-            #if(len(response['Results']['Demographics'].keys()) > 0):
                 data[field] = response['Results']['Demographics'][field]
             else:
                 data[field] = 0
@@ -52,7 +51,7 @@ class QueryHandler():
     def get_map_data(self):
         """
         Public method to be called to get list of places for the map handler to plot
-        :return dict:
+        :return data - python dict containing full map data:
         """
         data = {}
         water_systems = self.query_and_get_water_systems()

@@ -20,11 +20,13 @@
 <a style="alignment: center">
     {% if submit_flag == 1 %}
         {% if total > 1 %}
-            <h1> {{ total }} Health Violations Found! </h1>
+            <h1> {{ total }} Violations Found! </h1>
+            <a> Within 3 years</a>
         {% elif total == 1 %}
             <h1> {{ total }} Health Violation Found! </h1>
+            <a> Within 3 years</a>
         {% else %}
-            <h1> No Current Health Violations!! </h1>
+            <h1> No Recent Public Drinking Water Violations!! </h1>
         {% endif %}
     {% endif %}
 </a>
