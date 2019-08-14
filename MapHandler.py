@@ -1,3 +1,9 @@
+"""
+Sends and receives queries made to
+Google Maps Embed API & Google Geocode API
+
+File: MapHandler.py
+"""
 from flask_googlemaps import Map
 import googlemaps
 
