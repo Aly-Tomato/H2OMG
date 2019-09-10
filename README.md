@@ -9,7 +9,7 @@ When you click on the map markers, a link will direct you
 to EPA's Detailed Facility Report where the details of the violations
 will be available.  
 
-[![Deploying H2OMG!](https://github.com/Aly-Tomato/CS584_ConvexHullProject/blob/master/Images/VideoThumbnail.JPG)](https://youtu.be/79pVivolgDg "Deploying H2OMG!")
+[![Deploying H2OMG!](https://github.com/Aly-Tomato/H2OMG/blob/master/youtube_thumbnail.JPG)](https://youtu.be/79pVivolgDg "Deploying H2OMG!")
 
 ## APIs include
 * Google Maps Embed API
