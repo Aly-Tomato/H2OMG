@@ -9,7 +9,7 @@ When you click on the map markers, a link will direct you
 to EPA's Detailed Facility Report where the details of the violations
 will be available.  
 
-<iframe id="kaltura_player" src="https://cdnapisec.kaltura.com/p/1829851/sp/182985100/embedIframeJs/uiconf_id/31048982/partner_id/1829851?iframeembed=true&playerId=kaltura_player&entry_id=1_a6rvkdjo&flashvars[streamerType]=auto&amp;flashvars[localizationCode]=en&amp;flashvars[hotspots.plugin]=1&amp;flashvars[leadWithHTML5]=true&amp;flashvars[sideBarContainer.plugin]=true&amp;flashvars[sideBarContainer.position]=left&amp;flashvars[sideBarContainer.clickToClose]=true&amp;flashvars[chapters.plugin]=true&amp;flashvars[chapters.layout]=vertical&amp;flashvars[chapters.thumbnailRotator]=false&amp;flashvars[streamSelector.plugin]=true&amp;flashvars[EmbedPlayer.SpinnerTarget]=videoHolder&amp;flashvars[dualScreen.plugin]=true&amp;flashvars[Kaltura.addCrossoriginToIframe]=true&amp;&wid=0_czb9kov5" width="400" height="285" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" frameborder="0" title="Kaltura Player"></iframe>
+[![Deploying H2OMG!](https://github.com/Aly-Tomato/CS584_ConvexHullProject/blob/master/Images/VideoThumbnail.JPG)](https://youtu.be/79pVivolgDg "Deploying H2OMG!")
 
 ## APIs include
 * Google Maps Embed API
